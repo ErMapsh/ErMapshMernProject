@@ -9,7 +9,7 @@ const ConnectToMongo = async () => {
   //   mongoose.connect(MongoUrl, () => {
   //     console.log("connected to Mongo Successfully");
   //   });
-  
+
   mongoose
     .connect(MongoUrl)
     .then(() => {
