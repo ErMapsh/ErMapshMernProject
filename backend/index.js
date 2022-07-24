@@ -6,20 +6,14 @@ const middleware = require("./middleware/fetchuserid.js");
 ConnectToMongo();
 
 const app = express();
+app.use(express.json());
 
-app.use(express.json())
+app.use("/api/auth", require("./routes/auth"));
 
 app.get("/", (req, res) => {
-  res.send("what the fuck u want mf");
+  res.send("what the hell")
 });
 
-app.get("/about", middleware, (req, res) => {
-  res.send("what the about");
-});
-
-app.get("/contact", middleware, (req, res) => {
-  res.send("what the contact");
-});
 
 app.listen(process.env.port, () => {
   console.log(`listening on port http://localhost:${process.env.port}`);
