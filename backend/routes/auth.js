@@ -58,13 +58,13 @@ router.post(
       });
       await userinfo.save();
 
-      const payload = { user: { id: userinfo.id } };
-      const authtoken = jwt.sign(payload, process.env.JWT_SECRET_KEY);
+      // const payload = { user: { id: userinfo.id } };
+      // const authtoken = jwt.sign(payload, process.env.JWT_SECRET_KEY);
 
       res.status(201).json({
         Success: true,
         message: "Registration/Signup Successful",
-        authtoken: authtoken,
+        // authtoken: authtoken,
       });
     } catch (err) {
       console.log(err);
@@ -97,7 +97,8 @@ router.post(
     }
 
     try {
-      let UserInfo = await User.findOne({ email: req.body.email });
+      let token;
+      let UserInfo = await User.findOne({ email: email });
       // res.json(UserInfo);
 
       if (!UserInfo) {
@@ -108,6 +109,7 @@ router.post(
       }
 
       let PasswordCompare = await bcrypt.compare(password, UserInfo.password);
+      // console.log(PasswordCompare)
 
       if (!PasswordCompare) {
         return res.status(400).json({
@@ -116,15 +118,20 @@ router.post(
         });
       }
 
-      const payload = { user: { id: UserInfo.id } };
-      const authtoken = await jwt.sign(payload, process.env.JWT_SECRET_KEY);
+      token = await UserInfo.GenerateAuthToken();
+      console.log(token);
+
+      res.cookie("jwtoken", token, {
+        expires: new Date(Date.now() + 25892000000),
+        httpOnly: true,
+      });
 
       res.status(200).json({
         success: true,
-        authtoken: authtoken,
+        authtoken: token,
         msg: "Successfully login...",
       });
-
+      
     } catch (err) {
       res.status(500).json({
         success: false,
