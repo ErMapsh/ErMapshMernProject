@@ -119,7 +119,7 @@ router.post(
       }
 
       token = await UserInfo.GenerateAuthToken();
-      console.log(token);
+      // console.log(token);
 
       res.cookie("jwtoken", token, {
         expires: new Date(Date.now() + 25892000000),
@@ -131,7 +131,7 @@ router.post(
         authtoken: token,
         msg: "Successfully login...",
       });
-      
+
     } catch (err) {
       res.status(500).json({
         success: false,
