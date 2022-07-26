@@ -1,38 +1,54 @@
-.App {
-  text-align: center;
+.SignupForm {
+  width: 100vw;
+  padding: 3%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.Signup {
+  padding-left: 9%;
+  font-weight: 1000;
+  font-size: 250%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.input-container{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+#input-label{
+  position: relative;
+  top: 6px;
+  left: 22px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#input{
+  border-top:0;
+  border-left:0;
+  border-right:0;
+  outline:0;
+  width: 200%;
+  padding-left: 15%;
+}
+
+#input:focus{
+  outline:none!important;
+}
+
+
+#input[type="text"]::placeholder {  
+                  
+  /* Firefox, Chrome, Opera */ 
+  padding-left: 0px; 
+  font-weight: normal;
+} 
+
+#singupBtn{
+  background-color: rgb(21,114,253);
+  font-size: 130%;
+  color: whitesmoke;
+  outline: none;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 5%;
+  margin-left: 9% ;
 }
