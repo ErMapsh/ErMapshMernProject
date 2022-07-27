@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import User from "../../images/User2.jpg";
+import "../../styles/SignPage.css"
 
 export default function Signup() {
   return (
@@ -124,7 +125,7 @@ export default function Signup() {
         </div>
 
         <div id="Signup-image">
-          <img src={User} alt="Registration image" id="image-size"/>
+          <img src={User} alt="Registration" id="image-size"/>
           <NavLink to="/login" className="my-1" id="allreadyRegister">
             I am already register
           </NavLink>
