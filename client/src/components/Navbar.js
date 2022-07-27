@@ -6,21 +6,20 @@ export default function Navbar() {
   let location = useLocation();
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <Link className="navbar-brand" to="/">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <Link className="navbar-brand" exact="true" to="/">
           <img src={logo} style={{ height: "40px" }} alt="logo" />
         </Link>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav ml-auto">
             <li>
               <Link
                 className={`nav-link ${
                   location.pathname === "/" ? "active" : ""
                 }`}
                 aria-current="page"
-                exact
-                to="/"
+                exact="true" to="/"
               >
                 Home
               </Link>
@@ -31,7 +30,7 @@ export default function Navbar() {
                 className={`nav-link ${
                   location.pathname === "/about" ? "active" : ""
                 }`}
-                exact
+          
                 to="/about"
               >
                 About
@@ -43,7 +42,7 @@ export default function Navbar() {
                 className={`nav-link ${
                   location.pathname === "/contact" ? "active" : ""
                 }`}
-                exact
+                exact="true"
                 to="/contact"
               >
                 Contact
@@ -55,7 +54,7 @@ export default function Navbar() {
                 className={`nav-link ${
                   location.pathname === "/login" ? "active" : ""
                 }`}
-                exact
+                exact="true"
                 to="/login"
               >
                 Login
@@ -67,7 +66,7 @@ export default function Navbar() {
                 className={`nav-link ${
                   location.pathname === "/singup" ? "active" : ""
                 }`}
-                exact
+                exact="true"
                 to="/signup"
               >
                 Registration

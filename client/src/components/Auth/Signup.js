@@ -1,27 +1,24 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+import User from "../../images/User2.jpg";
 
 export default function Signup() {
   return (
     <div
       style={{
-        height: "90vh",
+        // height: "90vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
       }}
     >
-      <div
-        className="SignupForm rounded  w-50
-      //  d-flex justify-content-between
-       "
-      >
-        <div className="w-50">
-          <h2 className="Signup">Sign up</h2>
-
-          <form className="d-flex flex-column">
+      <div className="SignupForm">
+        <div id="formWidth">
+          <form id="FormPoperty">
+            <h2 className="Signup">Sign up</h2>
             <div className="input-container">
               <label htmlFor="name">
-                <span class="material-icons" id="input-label">
+                <span className="material-icons" id="input-label">
                   person
                 </span>
               </label>
@@ -37,7 +34,7 @@ export default function Signup() {
 
             <div className="input-container">
               <label htmlFor="email">
-                <span class="material-icons" id="input-label">
+                <span className="material-icons" id="input-label">
                   mail
                 </span>
               </label>
@@ -53,7 +50,7 @@ export default function Signup() {
 
             <div className="input-container">
               <label htmlFor="phone">
-                <span class="material-icons" id="input-label">
+                <span className="material-icons" id="input-label">
                   phone
                 </span>
               </label>
@@ -69,7 +66,7 @@ export default function Signup() {
 
             <div className="input-container">
               <label htmlFor="work">
-                <span class="material-icons" id="input-label">
+                <span className="material-icons" id="input-label">
                   work
                 </span>
               </label>
@@ -85,7 +82,7 @@ export default function Signup() {
 
             <div className="input-container">
               <label htmlFor="password">
-                <span class="material-icons" id="input-label">
+                <span className="material-icons" id="input-label">
                   lock
                 </span>
               </label>
@@ -101,7 +98,7 @@ export default function Signup() {
 
             <div className="input-container">
               <label htmlFor="Cpassword">
-                <span class="material-icons" id="input-label">
+                <span className="material-icons" id="input-label">
                   lock
                 </span>
               </label>
@@ -116,11 +113,22 @@ export default function Signup() {
             </div>
 
             <div>
-              <input type="submit" name="signup" id="singupBtn" value="register"/>
+              <input
+                type="submit"
+                name="signup"
+                id="singupBtn"
+                value="register"
+              />
             </div>
           </form>
         </div>
-      
+
+        <div id="Signup-image">
+          <img src={User} alt="Registration image" id="image-size"/>
+          <NavLink to="/login" className="my-1" id="allreadyRegister">
+            I am already register
+          </NavLink>
+        </div>
       </div>
     </div>
   );
