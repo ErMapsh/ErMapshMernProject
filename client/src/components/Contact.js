@@ -82,6 +82,7 @@ export default function Contact() {
                 name="GetTouchwithSubmit"
                 id="SubmitBtn"
                 value="submit"
+                disabled={true}
               />
             </div>
           </form>

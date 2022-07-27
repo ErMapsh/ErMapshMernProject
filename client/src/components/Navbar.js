@@ -75,7 +75,7 @@ export default function Navbar() {
             <li className="nav-item">
               <Link
                 className={`nav-link ${
-                  location.pathname === "/singup" ? "active" : ""
+                  location.pathname === "/signup" ? "active" : ""
                 }`}
                 exact="true"
                 to="/signup"
