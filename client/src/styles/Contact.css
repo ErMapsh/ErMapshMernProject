@@ -284,7 +284,7 @@
     align-items: center;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 2%;
-    width: 50%;
+    width: 45%;
     border-radius: 10px;
     margin: auto;
     margin-top: 2%;
@@ -292,6 +292,13 @@
 
   #GetInTouch form {
     width: 100%;
+  }
+
+  .ThreeInputs{
+    display: flex;
+    flex-direction:  row;
+    justify-content: space-between;
+    
   }
 
   .ThreeInputs div input {

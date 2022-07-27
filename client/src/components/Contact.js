@@ -52,10 +52,12 @@ export default function Contact() {
           </div>
         </div>
 
-        <div id="GetInTouch">
+        <div id="GetInTouch"> 
           <form>
-            <div className="ThreeInputs">
+            <div>
               <span id="GetInTouchText">Get in touch</span>
+            </div>
+            <div className="ThreeInputs">
               <div>
                 <input type="text" placeholder="Your name" name="username" />
               </div>
@@ -64,18 +66,23 @@ export default function Contact() {
               </div>
               <div>
                 <input
-                  type="text"
+                  type="phone"
                   placeholder="Your phone number"
                   name="yourphonenumber"
                 />
               </div>
             </div>
             <div id="TextArea">
-              <textarea placeholder="Message" rows="4"/>
+              <textarea placeholder="Message" rows="4" />
             </div>
 
             <div className="submitBtn">
-              <input type="submit" name="GetTouchwithSubmit" id="SubmitBtn" value="submit" />
+              <input
+                type="submit"
+                name="GetTouchwithSubmit"
+                id="SubmitBtn"
+                value="submit"
+              />
             </div>
           </form>
         </div>
