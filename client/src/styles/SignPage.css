@@ -1,4 +1,4 @@
-@media (min-width: 0px) and (max-width: 740px) {
+@media (min-width: 200px) and (max-width: 475px) {
   .SignupForm {
     margin-top: 5%;
     width: 100vw;
@@ -7,7 +7,6 @@
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    flex-flow: column-reverse;
     justify-content: space-between;
     width: 90%;
   }
@@ -80,7 +79,99 @@
 
   #allreadyRegister {
     text-decoration: none;
-    font-weight: bold;
+    font-weight: normal;
+    color: black;
+  }
+
+  #image-size {
+    width: 50%;
+  }
+}
+
+
+@media (min-width: 476px) and (max-width: 740px) {
+  .SignupForm {
+    margin-top: 5%;
+    width: 100vw;
+    padding: 3%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    /* flex-flow: column-reverse; */
+    justify-content: space-between;
+    width: 90%;
+  }
+
+  .Signup {
+    /* padding-left: 5%; */
+    font-weight: 1000;
+    font-size: 250%;
+  }
+
+  #formWidth {
+    width: 100%;
+  }
+
+  #FormPoperty {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input-container {
+    display: flex;
+    margin: 15px;
+    margin-left: -3%;
+  }
+
+  #input-label {
+    position: relative;
+    top: 6px;
+    left: 22px;
+  }
+
+  #input {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    outline: none;
+    width: 100%;
+    padding-left: 8%;
+  }
+
+  #input:focus {
+    outline: none !important;
+  }
+
+  input[type="text"]::placeholder {
+    /* Firefox, Chrome, Opera */
+    padding-left: 0px;
+    font-weight: normal;
+  }
+
+  #singupBtn {
+    background-color: rgb(21, 114, 253);
+    font-size: 130%;
+    color: white;
+    outline: none;
+    border: none;
+    padding: 2% 4% 2% 4%;
+    margin-top: 2%;
+    border-radius: 5px;
+  }
+
+  #Signup-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10%;
+  }
+
+  #allreadyRegister {
+    text-decoration: none;
+    font-weight: normal;
     color: black;
   }
 
@@ -98,7 +189,7 @@
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    flex-flow: column-reverse;
+    /* flex-flow: column-reverse; */
     justify-content: space-between;
     width: 70%;
   }
@@ -170,7 +261,7 @@
   }
   #allreadyRegister {
     text-decoration: none;
-    font-weight: bold;
+    font-weight: normal;
     color: black;
   }
   #image-size {
@@ -258,7 +349,7 @@
   }
   #allreadyRegister {
     text-decoration: none;
-    font-weight: bold;
+    font-weight: normal;
     color: black;
   }
 

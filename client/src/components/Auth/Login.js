@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import User from "../../images/Loginuser.jpg";
-import "../../styles/Login.css"
+import "../../styles/Login.css";
 
 export default function Login() {
   return (
@@ -15,10 +15,10 @@ export default function Login() {
     >
       <div className="SignupForm">
         <div id="Signup-image">
-          <img src={User} alt="Registration" id="image-size"/>
-          <NavLink to="/signup" className="my-1" id="allreadyRegister">
-            Create a account
-          </NavLink>
+          <img src={User} alt="Registration" id="image-size" />
+            <NavLink to="/signup" className="my-1" id="createAccount">
+              Create a account
+            </NavLink>
         </div>
         <div id="formWidth">
           <form id="FormPoperty">
