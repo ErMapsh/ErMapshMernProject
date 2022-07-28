@@ -29,19 +29,19 @@ router.post(
       if (!error.isEmpty()) {
         return res
           .status(400)
-          .json({ success: false, error: "Invalid Credentials" });
+          .json({ success: false, msg: "Invalid Credentials" });
       }
 
       const EmailExist = await User.findOne({ email: email });
       if (EmailExist) {
-        res.status(422).json({ success: false, error: "Email alreay Exists" });
+        res.status(422).json({ success: false, msg: "Email alreay Exists" });
       }
 
       const PhoneExist = await User.findOne({ phone: phone });
       if (PhoneExist) {
         res.status(422).json({
           success: false,
-          error: "Mobile Number already Exist, Use Another One",
+          msg: "Mobile Number already Exist, Use Another One",
         });
       }
 
@@ -63,7 +63,7 @@ router.post(
 
       res.status(201).json({
         Success: true,
-        message: "Registration/Signup Successful",
+        msg: "Registration/Signup Successful",
         // authtoken: authtoken,
       });
     } catch (err) {
@@ -71,7 +71,6 @@ router.post(
       res.status(500).json({
         success: false,
         msg: "Internal Server Error Occur",
-        error: err,
       });
     }
   }
@@ -131,7 +130,6 @@ router.post(
         authtoken: token,
         msg: "Successfully login...",
       });
-
     } catch (err) {
       res.status(500).json({
         success: false,

@@ -1,9 +1,56 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import User from "../../images/User2.jpg";
-import "../../styles/SignPage.css"
+import React, { useState } from "react";
+import { useNavigate,  NavLink } from "react-router-dom";
+import UserImage from "../../images/User2.jpg";
+import "../../styles/SignPage.css";
 
 export default function Signup() {
+  const navigate = useNavigate();
+  const [User, setUser] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    work: "",
+    password: "",
+    Cpassword: "",
+  });
+
+  const HandleOnChange = (event) => {
+    let name, value;
+    name = event.target.name;
+    value = event.target.value;
+    setUser({ ...User, [name]: value });
+  };
+
+  const PostData = async (e) => {
+    console.log("entered")
+    e.preventDefault();
+    const { name, email, phone, work, password, Cpassword } = User;
+
+    const res = await fetch("http://localhost:5000/api/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        phone,
+        work,
+        password,
+        Cpassword,
+      }),
+    });
+
+    
+
+    if (res.success) {
+      window.alert(res.msg);
+      navigate("/login");
+    } else {
+      window.alert(res.error);
+    }
+  };
+
   return (
     <div
       style={{
@@ -15,7 +62,7 @@ export default function Signup() {
     >
       <div className="SignupForm">
         <div id="formWidth">
-          <form id="FormPoperty">
+          <form id="FormPoperty" method="POST">
             <h2 className="Signup">Sign up</h2>
             <div className="input-container">
               <label htmlFor="name">
@@ -25,9 +72,11 @@ export default function Signup() {
               </label>
               <input
                 type="text"
-                id="input"
+                className="input"
                 autoComplete="off"
                 name="name"
+                onChange={HandleOnChange}
+                value={User.name}
                 placeholder="Your Name"
                 required
               />
@@ -41,9 +90,11 @@ export default function Signup() {
               </label>
               <input
                 type="email"
-                id="input"
+                className="input"
                 autoComplete="off"
                 name="email"
+                onChange={HandleOnChange}
+                value={User.email}
                 placeholder="Enter your email"
                 required
               />
@@ -57,9 +108,11 @@ export default function Signup() {
               </label>
               <input
                 type="phone"
-                id="input"
+                className="input"
                 autoComplete="off"
                 name="phone"
+                onChange={HandleOnChange}
+                value={User.phone}
                 placeholder="Your Phone Number"
                 required
               />
@@ -73,9 +126,11 @@ export default function Signup() {
               </label>
               <input
                 type="text"
-                id="input"
+                className="input"
                 autoComplete="off"
                 name="work"
+                onChange={HandleOnChange}
+                value={User.work}
                 placeholder="Enter your profession"
                 required
               />
@@ -89,9 +144,11 @@ export default function Signup() {
               </label>
               <input
                 type="password"
-                id="input"
+                className="input"
                 autoComplete="off"
                 name="password"
+                onChange={HandleOnChange}
+                value={User.password}
                 placeholder="Enter your Password"
                 required
               />
@@ -105,9 +162,11 @@ export default function Signup() {
               </label>
               <input
                 type="password"
-                id="input"
+                className="input"
                 autoComplete="off"
                 name="Cpassword"
+                onChange={HandleOnChange}
+                value={User.Cpassword}
                 placeholder="Confirm your Password"
                 required
               />
@@ -118,6 +177,9 @@ export default function Signup() {
                 type="submit"
                 name="signup"
                 id="singupBtn"
+                onClick={() => {
+                  PostData();
+                }}
                 value="register"
               />
             </div>
@@ -125,7 +187,7 @@ export default function Signup() {
         </div>
 
         <div id="Signup-image">
-          <img src={User} alt="Registration" id="image-size"/>
+          <img src={UserImage} alt="Registration" id="image-size" />
           <NavLink to="/login" className="my-1" id="allreadyRegister">
             I am already register
           </NavLink>
