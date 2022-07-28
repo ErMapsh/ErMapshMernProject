@@ -4,6 +4,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Login from "./components/Auth/Login";
 import Signup from "./components/Auth/Signup";
+import Errorpage from "./components/Errorpage";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -21,6 +22,8 @@ function App() {
         <Route exact path="/login" element={<Login />} />
 
         <Route exact path="/signup" element={<Signup />} />
+
+        <Route path="*" element={<Errorpage />} />
       </Routes>
     </>
   );
