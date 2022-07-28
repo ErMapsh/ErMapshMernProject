@@ -1,0 +1,34 @@
+.Home{
+    display: flex;  
+}
+
+.Homebox1{
+    background-color: rgb(216, 216, 249);
+    width: 50%;
+    height: 93vh;
+}
+.Homebox2{
+    background-color: rgb(255, 255, 255);
+    width: 50%;
+    height: 93vh;   
+}
+
+.Homerelative1{
+    position: relative;
+    top: 49%;
+    left: 95%;
+    font-weight: bolder;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(41, 108, 251);
+    font-size: 1.5rem;
+}
+
+.Homerelative2{
+    position: relative;
+    font-weight: bolder;
+    font-size: 4rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+    top: 51%;
+    right: 33%;
+}
