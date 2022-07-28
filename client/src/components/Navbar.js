@@ -6,7 +6,11 @@ export default function Navbar() {
   let location = useLocation();
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav
+        className={`navbar navbar-expand-lg navbar-light  ${
+          location.pathname === "/" ? "bg-light" : ""
+        }`}
+      >
         <Link className="navbar-brand" exact="true" to="/">
           <img src={logo} style={{ height: "40px" }} alt="logo" />
         </Link>
