@@ -41,7 +41,7 @@ export default function Navbar() {
               </Link>
             </li>
 
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link
                 className={`nav-link font-weight-normal ${
                   location.pathname === "/about" ? "active" : ""
@@ -50,7 +50,7 @@ export default function Navbar() {
               >
                 About
               </Link>
-            </li>
+            </li> */}
 
             <li className="nav-item">
               <Link
