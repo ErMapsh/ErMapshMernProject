@@ -61,11 +61,13 @@ router.post(
       // const payload = { user: { id: userinfo.id } };
       // const authtoken = jwt.sign(payload, process.env.JWT_SECRET_KEY);
 
+      console.log("Reg Succesfull\n");
       res.status(201).json({
         Success: true,
         msg: "Registration/Signup Successful",
         // authtoken: authtoken,
       });
+
     } catch (err) {
       console.log(err);
       res.status(500).json({

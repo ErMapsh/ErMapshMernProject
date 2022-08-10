@@ -1,0 +1,171 @@
+@media (min-width: 200px) and (max-width: 475px) {
+    .Home {
+        display: flex;
+        width: 100%;
+        height: 100vh;
+      }
+    
+      .Homebox1 {
+        background-color: rgb(216, 216, 249);
+        width: 50%;
+        height: 100vh;
+      }
+      .Homebox2 {
+        background-color: rgb(255, 255, 255);
+        width: 50%;
+        height: 100vh;
+      }
+    
+      .Homerelative1 {
+        text-align: center;
+        position: relative;
+        top: 30%;
+        left: 50%;
+        font-weight: bolder;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: rgb(41, 108, 251);
+        font-size: 1.8rem;
+      }
+    
+      .Homerelative2 {
+        width: 100%;
+        margin-top: 5px;
+        text-align: center;
+        position: relative;
+        font-weight: bold;
+        font-size: 45px;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+        color: black;
+        top: 40%;
+        right: 50%;
+      }
+}
+
+@media (min-width: 476px) and (max-width: 740px) {
+  .Home {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .Homebox1 {
+    background-color: rgb(216, 216, 249);
+    width: 50%;
+    height: 100vh;
+  }
+  .Homebox2 {
+    background-color: rgb(255, 255, 255);
+    width: 50%;
+    height: 100vh;
+  }
+
+  .Homerelative1 {
+    text-align: center;
+    position: relative;
+    top: 30%;
+    left: 50%;
+    font-weight: bolder;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(41, 108, 251);
+    font-size: 1.8rem;
+  }
+
+  .Homerelative2 {
+    width: 100%;
+    margin-top: 5px;
+    text-align: center;
+    position: relative;
+    font-weight: bold;
+    font-size: 45px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    color: black;
+    top: 40%;
+    right: 50%;
+  }
+}
+
+@media (min-width: 740px) and (max-width: 1250px) {
+  .Home {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .Homebox1 {
+    background-color: rgb(216, 216, 249);
+    width: 50%;
+    height: 100vh;
+  }
+  .Homebox2 {
+    background-color: rgb(255, 255, 255);
+    width: 50%;
+    height: 100vh;
+  }
+
+  .Homerelative1 {
+    text-align: center;
+    position: relative;
+    top: 40%;
+    left: 50%;
+    font-weight: bolder;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(41, 108, 251);
+    font-size: 1.8rem;
+  }
+
+  .Homerelative2 {
+    width: 100%;
+    margin-top: 5px;
+    text-align: center;
+    position: relative;
+    font-weight: bold;
+    font-size: 50px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+    color: black;
+    top: 45%;
+    right: 50%;
+  }
+}
+
+@media (min-width: 1250px) {
+  .Home {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .Homebox1 {
+    background-color: rgb(216, 216, 249);
+    width: 50%;
+    height: 100vh;
+  }
+  .Homebox2 {
+    background-color: rgb(255, 255, 255);
+    width: 50%;
+    height: 100vh;
+  }
+
+  .Homerelative1 {
+    text-align: center;
+    position: relative;
+    top: 45%;
+    left: 50%;
+    font-weight: bolder;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(41, 108, 251);
+    font-size: 1.8rem;
+  }
+
+  .Homerelative2 {
+    text-align: center;
+    position: relative;
+    font-weight: bold;
+    font-size: 55px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+    color: black;
+    top: 50%;
+    right: 50%;
+  }
+}

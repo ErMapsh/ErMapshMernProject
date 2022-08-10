@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`navbar navbar-expand-lg navbar-light  ${
+        className={`navbar navbar-expand-lg navbar-light px-1 py-0 fixed-top ${
           location.pathname === "/" ? "bg-light" : ""
         }`}
       >
@@ -30,7 +30,7 @@ export default function Navbar() {
           <ul className="navbar-nav ml-auto">
             <li>
               <Link
-                className={`nav-link ${
+                className={`nav-link font-weight-normal ${
                   location.pathname === "/" ? "active" : ""
                 }`}
                 aria-current="page"
@@ -43,9 +43,9 @@ export default function Navbar() {
 
             <li className="nav-item">
               <Link
-                className={`nav-link ${
+                className={`nav-link font-weight-normal ${
                   location.pathname === "/about" ? "active" : ""
-                }`}
+                } `}
                 to="/about"
               >
                 About
@@ -54,7 +54,7 @@ export default function Navbar() {
 
             <li className="nav-item">
               <Link
-                className={`nav-link ${
+                className={`nav-link font-weight-normal ${
                   location.pathname === "/contact" ? "active" : ""
                 }`}
                 exact="true"
@@ -66,7 +66,7 @@ export default function Navbar() {
 
             <li className="nav-item">
               <Link
-                className={`nav-link ${
+                className={`nav-link font-weight-normal ${
                   location.pathname === "/login" ? "active" : ""
                 }`}
                 exact="true"
@@ -78,7 +78,7 @@ export default function Navbar() {
 
             <li className="nav-item">
               <Link
-                className={`nav-link ${
+                className={`nav-link font-weight-normal ${
                   location.pathname === "/signup" ? "active" : ""
                 }`}
                 exact="true"
