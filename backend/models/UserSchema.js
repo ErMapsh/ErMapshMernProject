@@ -28,7 +28,7 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
-  data: {
+  date: {
     type: Date,
     default: Date.now,
   },
@@ -44,7 +44,7 @@ const UserSchema = new Schema({
 
 UserSchema.methods.GenerateAuthToken = async function () {
   try {
-    let token = jwt.sign({ _id: this._id }, process.env.JWT_SECRET_KEY);
+    let token = jwt.sign({ _id: this._id }, "ermapshisagoodb%oy$ermapshisagoodb%oy$");
     this.tokens = this.tokens.concat({ token: token });
     await this.save();
     return token;

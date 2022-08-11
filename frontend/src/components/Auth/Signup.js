@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate,  NavLink } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import UserImage from "../../images/User2.jpg";
 import "../../styles/SignPage.css";
 
 export default function Signup() {
   const navigate = useNavigate();
   const [User, setUser] = useState({
-    name: "",
+    username: "",
     email: "",
     phone: "",
     work: "",
@@ -22,9 +22,9 @@ export default function Signup() {
   };
 
   const PostData = async (e) => {
-    console.log("entered")
     e.preventDefault();
-    const { name, email, phone, work, password, Cpassword } = User;
+    const { username, email, phone, work, password, Cpassword } = User;
+    // console.log(User)
 
     const res = await fetch("http://localhost:5000/api/auth/register", {
       method: "POST",
@@ -32,22 +32,23 @@ export default function Signup() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name,
-        email,
-        phone,
-        work,
-        password,
-        Cpassword,
+        username: username,
+        email: email,
+        phone: phone,
+        work: work,
+        password: password,
+        Cpassword: Cpassword,
       }),
     });
 
-    
-
-    if (res.success) {
-      window.alert(res.msg);
+    let json = await res.json();
+    // console.log(json);
+    if (json.Success === true) {
+      window.alert(json.Msg);
       navigate("/login");
     } else {
-      window.alert(res.error);
+      // window.alert("Something Went Wrong");
+      console.log(json.Msg)
     }
   };
 
@@ -62,7 +63,7 @@ export default function Signup() {
     >
       <div className="SignupForm">
         <div id="formWidth">
-          <form id="FormPoperty" method="POST">
+          <form id="FormPoperty" >
             <h2 className="Signup">Sign up</h2>
             <div className="input-container">
               <label htmlFor="name">
@@ -74,7 +75,7 @@ export default function Signup() {
                 type="text"
                 className="input"
                 autoComplete="off"
-                name="name"
+                name="username"
                 onChange={HandleOnChange}
                 value={User.name}
                 placeholder="Your Name"
@@ -177,9 +178,7 @@ export default function Signup() {
                 type="submit"
                 name="signup"
                 id="singupBtn"
-                onClick={() => {
-                  PostData();
-                }}
+                onClick={PostData}
                 value="register"
               />
             </div>

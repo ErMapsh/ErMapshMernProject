@@ -4,10 +4,15 @@ import logo from "../images/logo3.png";
 
 export default function Navbar() {
   let location = useLocation();
+
+  const logout = () =>{
+    localStorage.removeItem("Authtoken");
+  }
   return (
     <>
       <nav
-        className={`navbar navbar-expand-lg navbar-light px-1 py-0 fixed-top ${
+        className={`navbar navbar-expand-lg navbar-light px-1 py-0 
+        ${
           location.pathname === "/" ? "bg-light" : ""
         }`}
       >
@@ -41,7 +46,7 @@ export default function Navbar() {
               </Link>
             </li>
 
-            {/* <li className="nav-item">
+            <li className="nav-item">
               <Link
                 className={`nav-link font-weight-normal ${
                   location.pathname === "/about" ? "active" : ""
@@ -50,7 +55,7 @@ export default function Navbar() {
               >
                 About
               </Link>
-            </li> */}
+            </li>
 
             <li className="nav-item">
               <Link
@@ -63,12 +68,13 @@ export default function Navbar() {
                 Contact
               </Link>
             </li>
-
+                  
             <li className="nav-item">
               <Link
                 className={`nav-link font-weight-normal ${
                   location.pathname === "/login" ? "active" : ""
                 }`}
+                hidden={localStorage.getItem("Authtoken")?true: false}   
                 exact="true"
                 to="/login"
               >
@@ -76,17 +82,33 @@ export default function Navbar() {
               </Link>
             </li>
 
+
             <li className="nav-item">
               <Link
                 className={`nav-link font-weight-normal ${
                   location.pathname === "/signup" ? "active" : ""
                 }`}
+                hidden={localStorage.getItem("Authtoken")?true: false}
                 exact="true"
                 to="/signup"
               >
                 Registration
               </Link>
             </li>
+
+
+            <li className="nav-item">
+              <Link
+                className={`nav-link font-weight-normal`}
+                hidden={localStorage.getItem("Authtoken")?false: true}
+                exact="true"
+                to="/"
+                onClick={logout}
+              >
+                Logout
+              </Link>
+            </li>
+
           </ul>
         </div>
       </nav>
