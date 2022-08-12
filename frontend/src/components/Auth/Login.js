@@ -31,7 +31,7 @@ export default function Login() {
       
     try {
       let json = await res.json();
-      // console.log(json);
+      // console.log(json); 
 
       if (json.Success === true) {
         window.alert(json.Msg);

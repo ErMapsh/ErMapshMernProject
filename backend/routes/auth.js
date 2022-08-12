@@ -4,6 +4,7 @@ const router = express.Router();
 const User = require("../models/UserSchema");
 const bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
+const fetchuserid = require("../middleware/fetchuserid");
 require("dotenv").config({ path: "../config/info.env" });
 
 // https://localhost:3000/api/auth/register dosent require login
@@ -75,7 +76,7 @@ router.post(
   }
 );
 
-// https://localhost:3000/api/auth/login
+// https://localhost:5000/api/auth/login
 router.post(
   "/login",
 
@@ -89,23 +90,19 @@ router.post(
     try {
       let errors = validationResult(req);
       if (!errors.isEmpty()) {
-        return (
-          res
-            .status(400)
-            .json({ Success: false, Msg: "invalid Credentials" })
-        );
+        return res
+          .status(400)
+          .json({ Success: false, Msg: "invalid Credentials" });
       }
 
       let token;
       let UserInfo = await User.findOne({ email: email });
 
       if (!UserInfo) {
-        res
-          .status(401)
-          .json({
-            Success: false,
-            Msg: "Please try to login with correct credentials",
-          });
+        res.status(401).json({
+          Success: false,
+          Msg: "Please try to login with correct credentials",
+        });
       }
 
       let PasswordCompare = await bcrypt.compare(password, UserInfo.password);
@@ -140,5 +137,19 @@ router.post(
     }
   }
 );
+
+// https://localhost:5000/api/auth/about
+router.post("/getuser", fetchuserid, async (req, res) => {
+  // console.log("In request:", req.userId)
+
+  const verifyById = await User.findById(req.userId).select(
+    "-password -Cpassword"
+  );
+  // console.log("User Data", verifyById);
+  if (!verifyById) {
+    res.status(401).json({ error: "Unauthorized" });
+  }
+  res.status(200).json({ Success: true, UserData: verifyById, Msg: "User Data mil gaya" });
+});
 
 module.exports = router;

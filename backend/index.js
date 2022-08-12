@@ -15,9 +15,10 @@ app.use(express.json());
 
 app.use("/api/auth", require("./routes/auth"));
 
-app.get("/", (req, res) => {
-  res.send("what the hell")
-});
+// app.get("/", (req, res) => {
+//   res.send("what the hell")
+// });
+
 app.listen(5000, () => {
   console.log(`listening on port http://localhost:${5000}`);
 });

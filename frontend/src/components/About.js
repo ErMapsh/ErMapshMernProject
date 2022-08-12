@@ -1,7 +1,42 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/About.css";
 
 export default function About() {
+  const [userData, setuserData] = useState({});
+
+  // console.log(localStorage.getItem("Authtoken"))
+  const GetData = async () => {
+    const res = await fetch("http://localhost:5000/api/auth/getuser", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authtoken": localStorage.getItem("Authtoken"),
+      },
+    });
+
+    try{
+      const json = await res.json();
+      console.log("data: ",json);
+      const { _id, username, email, phone, work } = json.UserData;
+
+      setuserData({
+        "_id": _id,
+        "username": username,
+        "email": email,
+        "phone": phone,
+        "work": work,
+      });
+
+    }catch(err){
+      console.log(err)
+    }
+  };
+
+  useEffect(() => {
+    GetData();
+  }, []);
+  console.log(userData)
+  
   return (
     <div className="aboutBox">
       <div className="boxes">
@@ -15,8 +50,10 @@ export default function About() {
 
         <div className="box2">
           <div className="Userinfo">
-            <span className="Name">Mahesh Mestri</span>
-            <span className="Work">Web Developer</span>
+            <span className="Name">
+              {userData ? userData.username : "None"}
+            </span>
+            <span className="Work">{userData ? userData.work : "None"}</span>
             <div>
               Ranking:<span className="ranking"> 1/10</span>
             </div>
@@ -29,7 +66,7 @@ export default function About() {
                   href="#about"
                   id="home-tab"
                   role="tab"
-                  className="nav-link active bold"
+                  className="nav-link active font-weight-bold"
                 >
                   About
                 </a>
@@ -39,7 +76,7 @@ export default function About() {
                   href="#timeline"
                   id="profile-tab"
                   role="tab"
-                  className="nav-link"
+                  className="nav-link font-weight-bold"
                 >
                   Timeline
                 </a>
@@ -69,11 +106,11 @@ export default function About() {
           <div className="md">Profession</div>
         </div>
         <div className="box6">
-          <div className="">fsfsfsf223434</div>
-          <div className="">Mahesh Mestri</div>
-          <div className="">Maheshmestri73@gmail.com</div>
-          <div className="">9405135389</div>
-          <div className="">Software Engineer</div>
+          <div className="">{userData ? userData._id : "None"}</div>
+          <div className="">{userData ? userData.username : "None"}</div>
+          <div className="">{userData ? userData.email : "None"}</div>
+          <div className="">{userData ? userData.phone : "None"}</div>
+          <div className="">{userData ? userData.work : "None"}</div>
         </div>
       </div>
     </div>

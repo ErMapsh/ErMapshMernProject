@@ -25,10 +25,11 @@ export default function Signup() {
     e.preventDefault();
     const { username, email, phone, work, password, Cpassword } = User;
     // console.log(User)
+    try{
 
-    const res = await fetch("http://localhost:5000/api/auth/register", {
-      method: "POST",
-      headers: {
+      const res = await fetch("http://localhost:5000/api/auth/register", {
+        method: "POST",
+        headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -40,7 +41,7 @@ export default function Signup() {
         Cpassword: Cpassword,
       }),
     });
-
+    
     let json = await res.json();
     // console.log(json);
     if (json.Success === true) {
@@ -50,8 +51,11 @@ export default function Signup() {
       // window.alert("Something Went Wrong");
       console.log(json.Msg)
     }
+  }catch(err){
+    console.log("Internal Error occur")
+  }
   };
-
+  
   return (
     <div
       style={{
@@ -177,9 +181,11 @@ export default function Signup() {
               <input
                 type="submit"
                 name="signup"
-                id="singupBtn"
+                // id="singupBtn"
+                disabled={User.password !== User.Cpassword || User.Cpassword === "" && User.password === ""}
                 onClick={PostData}
-                value="register"
+                // value="register"
+                className="btn btn-primary"
               />
             </div>
           </form>
