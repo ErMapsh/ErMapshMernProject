@@ -1,0 +1,1 @@
+![img]("/frontend/src/images/web.png")
