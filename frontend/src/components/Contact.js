@@ -1,10 +1,18 @@
-import React from "react";
+import React , {useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 import phone from "../images/smartphone2png";
 import address from "../images/address.png";
 import email from "../images/mail.png";
 import "../styles/Contact.css";
 
 export default function Contact() {
+  let navigate = useNavigate();
+  useEffect(() => {
+    if (!localStorage.getItem("Authtoken")) {
+      navigate("/login");
+    }
+  
+  }, []);
   return (
     <>
       <div className="">

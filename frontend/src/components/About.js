@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/About.css";
 
 export default function About() {
+  let navigate = useNavigate();
   const [userData, setuserData] = useState({});
 
   // console.log(localStorage.getItem("Authtoken"))
@@ -33,6 +35,9 @@ export default function About() {
   };
 
   useEffect(() => {
+    if (!localStorage.getItem("Authtoken")) {
+      navigate("/login");
+    }
     GetData();
   }, []);
   console.log(userData)

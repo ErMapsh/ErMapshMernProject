@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/Home.css";
 
 export default function Home() {
-  return (
+    return (
     <div className="Home">
       <div className="Homebox1">
         <div className="Homerelative1">Welcome</div>
