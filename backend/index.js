@@ -19,8 +19,8 @@ app.use("/api/auth", require("./routes/auth"));
 //   res.send("what the hell")
 // });
 
-app.listen(5000, () => {
-  console.log(`listening on port http://localhost:${5000}`);
+app.listen(process.env.port, () => {
+  console.log(`listening on port http://localhost:${process.env.port}`);
 });
 
 // console.log(process.env.port)

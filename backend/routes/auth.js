@@ -5,7 +5,7 @@ const User = require("../models/UserSchema");
 const bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
 const fetchuserid = require("../middleware/fetchuserid");
-require("dotenv").config({ path: "../config/info.env" });
+require("dotenv").config({ path: "../../config/info.env" });
 
 // https://localhost:3000/api/auth/register dosent require login
 router.post(
@@ -53,7 +53,7 @@ router.post(
         phone: phone,
         work: work,
         password: securePass,
-        Cpassword: securePass,
+        // Cpassword: securePass,
       });
       await userinfo.save();
 

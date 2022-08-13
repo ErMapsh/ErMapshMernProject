@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
-require("dotenv").config({ path: "../config/info.env" });
+require("dotenv").config({ path: "../../config/info.env" });
 const { Schema } = mongoose;
 
 const UserSchema = new Schema({
@@ -24,10 +24,10 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
-  Cpassword: {
-    type: String,
-    required: true,
-  },
+  // Cpassword: {
+  //   type: String,
+  //   required: true,
+  // },
   date: {
     type: Date,
     default: Date.now,
@@ -44,7 +44,7 @@ const UserSchema = new Schema({
 
 UserSchema.methods.GenerateAuthToken = async function () {
   try {
-    let token = jwt.sign({ _id: this._id }, "ermapshisagoodb%oy$ermapshisagoodb%oy$");
+    let token = jwt.sign({ _id: this._id }, process.env.JWT_SECRET_KEY);
     this.tokens = this.tokens.concat({ token: token });
     await this.save();
     return token;

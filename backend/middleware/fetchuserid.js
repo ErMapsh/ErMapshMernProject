@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-// require("dotenv").config({ path: "../config/info.env" });
+require("dotenv").config({ path: "../../config/info.env" });
 const User = require("../models/UserSchema");
 
 async function fetchuserid(req, res, next){
@@ -12,7 +12,7 @@ async function fetchuserid(req, res, next){
     if (authtoken) {
       const VerifyJWT = jwt.verify(
         authtoken,
-        "ermapshisagoodb%oy$ermapshisagoodb%oy$"
+        process.env.JWT_SECRET_KEY
       );
       // console.log("verified", VerifyJWT);
       req.userId = VerifyJWT._id;
