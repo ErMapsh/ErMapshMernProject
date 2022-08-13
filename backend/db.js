@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 require("dotenv").config({ path: "../config/info.env" });
 
-const MongoUrl = `mongodb+srv://${process.env.MongoUrlUsername}:${process.env.MongoUrlPass}@ermapsh.fu0vfpq.mongodb.net/${process.env.DB}`;
+const MongoUrl = process.env.DBURL;
 
 const ConnectToMongo = async () => {
   //   mongoose.connect(MongoUrl, () => {
