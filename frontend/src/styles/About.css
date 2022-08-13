@@ -61,6 +61,10 @@
     text-decoration: none;
   }
 
+  .box4 div{
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
   .box5 {
     display: flex;
     flex-direction: column;
@@ -112,7 +116,8 @@
     color: black;
   }
   .Work {
-    color: cornflowerblue;
+    color: rgb(0, 123, 199);
+    font-weight: 600;
   }
   .ranking {
     font-weight: bolder;
@@ -152,5 +157,10 @@
     justify-content: space-between;
     font-weight: 300;
     font-size: medium;
+  }
+  .box6 div{
+    font-weight: 500;
+    color: rgb(0, 123, 199);
+    font-size: 1rem;
   }
 }

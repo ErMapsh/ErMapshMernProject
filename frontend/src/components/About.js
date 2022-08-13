@@ -39,6 +39,7 @@ export default function About() {
       navigate("/login");
     }
     GetData();
+    // eslint-disable-next-line
   }, []);
   console.log(userData)
   
